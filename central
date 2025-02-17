@@ -17,3 +17,29 @@ def os
     return 'osx'
   end
 end
+
+def pwd
+  Dir.pwd
+end
+
+def abs(path)
+  path = File.absolute_path(File.expand_path(path))
+end
+
+def chdir(dir)
+  Dir.chdir(abs(dir))
+end
+
+def file_exists?(path)
+  path = abs(path)
+  File.file?(path) && File.readable?(path)
+end
+
+def dir_exists?(path)
+  path = abs(path)
+  Dir.exists?(path)
+end
+
+def file_dir(path)
+  File.dirname(abs(path))
+end
