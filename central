@@ -3,3 +3,17 @@
 
 require 'erb'
 require 'socket'
+
+# get hostname
+def hostname
+  Socket.gethostname
+end
+
+# get operating system
+def os
+  if RUBY_PLATFORM.include?('linux')
+    return 'linux'
+  elsif RUBY_PLATFORM.include?('darwin')
+    return 'osx'
+  end
+end
